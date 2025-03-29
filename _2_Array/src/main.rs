@@ -1,4 +1,31 @@
+fn reverse_arr(arr: &[i32; 5]) -> () {
+    // .iter()	    Creates an iterator over the elements of an array.
+    // .rev()	    Reverses the order of the elements in the iterator.
 
+    let reversed_iter = arr.iter().rev(); // Creates a reversed iterator
+
+    // {}    -->   Used for simple values (strings, integers)
+    //             println!("Number: {}", 42);
+
+    // {:?}  -->   Used for debugging (prints structs, arrays, etc.)
+    //             println!("Array: {:?}", [1, 2, 3]);
+
+    // {:#?} -->   Pretty-printing with indentation
+    //             println!("Array: {:#?}", [1, 2, 3]);
+
+    println!("{:?}", reversed_iter);
+    // Pinrting array values using iterator
+    for num in reversed_iter {
+        print!("{} ", num); // Prints numbers in reverse order
+    }
+
+    // .cloned()	Creates a copy of each element (used when dealing with references).
+    // .collect()	Converts the iterator back into a collection (e.g., a Vec<T>).
+
+    let reversed: Vec<i32> = arr.iter().rev().cloned().collect(); // Clones each value
+
+    println!("\n{:#?}", reversed);
+}
 
 fn main() {
     // println!("Hellow world");
@@ -20,4 +47,6 @@ fn main() {
 
     println!("Array occupies {} bytes", size_of_val(&xs)); // Outputs the size in bytes occupied by `xs`
     println!("Array occupies {} bytes", size_of_val(&ys)); // Outputs the size in bytes occupied by `ys`
+
+    reverse_arr(&xs);
 }
